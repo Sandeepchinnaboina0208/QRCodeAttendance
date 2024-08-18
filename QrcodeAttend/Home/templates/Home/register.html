@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Signup PAGE</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{% static 'Home/css/register.css' %}">
+</head>
+<body>
+
+
+
+    <div id="signup-form-wrap">
+    <h2>Signup</h2>
+    <form METHOD="post" action="{% url 'register' %}" onsubmit="return validateForm()">
+        {% csrf_token %}
+    <p>
+        <label for="Username"><b>Username</b></label>
+        <input type="text" id="Username" name="username" placeholder="Username" required><i class=""><span></span><span></span></i>
+    </p>
+    <p>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="pwd" id="password" required>
+    </p>
+    <p>
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="repeatPassword" required>
+    </p>
+    <p>
+        <center> <input type="submit" id="Signup" value="Signup"> </center>
+    </p>
+    </form>
+    <p class="para-2">
+      Already have an account? <a href="{% url 'Home-login' %}">Login here</a>
+    </p>
+</div><!--signup-form-wrap-->
+
+<script>
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var repeatPassword = document.getElementById("repeatPassword").value;
+
+        if (password !== repeatPassword) {
+            alert("Passwords do not match. Please make sure the password and repeat password are the same.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
+</html>

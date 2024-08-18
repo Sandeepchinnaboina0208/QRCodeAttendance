@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'Home/css/about.css' %}">
+  <link rel="stylesheet" href="{% static 'Home/css/home.css' %}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>QRCodeAttend</h1>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'Attandance-qrcodegeneration' %}">Features</a></li>
+                <li><a href="{% url 'Home-about' %}">About</a></li>
+                <li><a href="{% url 'student-attendance' %}">Attendance</a></li>
+                <li><a href="{% url 'Home-contactus' %}">Contact</a></li>
+                <li><a href="{% url 'Home-home' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="responsive-container-block bigContainer">
+  <div class="responsive-container-block Container">
+    <p class="text-blk heading">
+      About Us
+    </p>
+    <p class="text-blk subHeading">
+      QRCodeAttend is an innovative web-based platform designed to revolutionize the way attendance is tracked and managed across different settings, including educational institutions, corporate offices, conferences, and events. By utilizing QR code technology, QRCodeAttend eliminates the inefficiencies and inaccuracies of traditional attendance methods, such as manual sign-ins and the risk of proxy attendance.
+    </p>
+    <div class="social-icons-container">
+      <a class="social-icon">
+        <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb33.png">
+      </a>
+      <a class="social-icon">
+        <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb34.png">
+      </a>
+      <a class="social-icon">
+        <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb35.png">
+      </a>
+      <a class="social-icon">
+        <img class="socialIcon image-block" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb36.png">
+      </a>
+    </div>
+  </div>
+</div>
+
+ <footer>
+        <p>&copy; 2024 QRCodeAttend. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

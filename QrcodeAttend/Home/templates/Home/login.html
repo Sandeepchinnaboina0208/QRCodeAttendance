@@ -1,0 +1,43 @@
+{% load static %}
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+      <title>Login</title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel="stylesheet" href="{% static 'Home/css/login.css' %}">
+
+    </head>
+    <body>
+
+
+
+      <div id="login-form-wrap">
+            <h2>LOGIN</h2>
+
+        <form  METHOD="post" action="{% url 'checklogin' %}">
+             {% csrf_token %}
+
+         <p>
+        <label for="Username"><b>Username</b></label>
+        <input type="text" id="Username" name="username" placeholder="Username" required><i class="username"><span></span><span></span></i>
+         </p>
+
+         <p>
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="pwd" required>
+         </p>
+
+      <p>
+       <center> <input  type="submit" id="login" value="login"> </center>
+        </p>
+        </form>
+
+    </body>
+    <p class="para-2">Don't have an account?
+        <a href="{% url 'Home-register' %}">Signup here</a>
+    </p>
+   <p class="para-2">
+      <center> <a href=""></a> </center>
+    </p>
+</html>

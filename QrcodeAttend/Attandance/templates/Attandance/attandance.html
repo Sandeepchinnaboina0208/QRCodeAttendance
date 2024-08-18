@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance - QRCodeAttend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Attandance/css/attandance.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>QRCodeAttend</h1>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home-home2' %}">Home</a></li>
+                <li><a href="{% url 'Attandance-qrcodegeneration' %}">Features</a></li>
+                <li><a href="{% url 'Home-about' %}">About</a></li>
+                <li><a href="{% url 'student-attendance' %}">Attendance</a></li>
+                <li><a href="{% url 'Home-contactus' %}">Contact</a></li>
+                <li><a href="{% url 'Home-home' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="attendance-container">
+        <div class="attendance-header">
+            <h2>Student Attendance</h2>
+            <p>Mark attendance for the class below.</p>
+        </div>
+        <form method="post" action="{% url 'submit-attendance' %}">
+            {% csrf_token %}
+            <div class="attendance-list">
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_1" value="present"> Sandeep Chinnaboina
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_2" value="present"> Chinta Sathwik
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Waseem Shaik
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Siva Karthik
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Navadeep Garga
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Surya Theja Muppala
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Abhiram
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Manohar
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Koushik
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Varshitha
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Keerthi
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Ria
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Poojitha
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Soophia
+                    </label>
+                </div>
+                <div class="attendance-item">
+                    <label>
+                        <input type="checkbox" name="student_3" value="present"> Rathika
+                    </label>
+                </div>
+                <!-- Add more students here -->
+            </div>
+            <button type="submit" class="submit-btn">Submit Attendance</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 QRCodeAttend. All rights reserved.</p>
+    </footer>
+</body>
+</html>

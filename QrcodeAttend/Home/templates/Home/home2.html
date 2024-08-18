@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCodeAttend</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Home/css/home.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>QRCodeAttend</h1>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'Attandance-qrcodegeneration' %}">Features</a></li>
+                <li><a href="{% url 'Home-about' %}">About</a></li>
+                <li><a href="{% url 'student-attendance' %}">Attendance</a></li>
+                <li><a href="{% url 'Home-contactus' %}">Contact</a></li>
+                <li><a href="{% url 'Home-home' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to QRCodeAttend</h2>
+            <p>A dynamic and proxy-free attendance tracking solution.</p>
+            <a href="{% url 'student-attendance' %}" class="cta-btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="card">
+            <h3>QR Code Generation</h3>
+            <p>Generate unique QR codes for easy attendance marking.</p>
+        </div>
+        <div class="card">
+            <h3>Dynamic Time Change</h3>
+            <p>Automatically updates attendance records with time changes.</p>
+        </div>
+        <div class="card">
+            <h3>Proxy-Free Attendance</h3>
+            <p>Ensures integrity with advanced anti-proxy algorithms.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 QRCodeAttend. All rights reserved.</p>
+    </footer>
+</body>
+</html>

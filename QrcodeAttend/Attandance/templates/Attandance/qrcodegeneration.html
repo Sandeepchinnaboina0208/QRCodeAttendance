@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generation - QRCodeAttend</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Attandance/css/qrcodegeneration.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>QRCodeAttend</h1>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home-home2' %}">Home</a></li>
+                <li><a href="{% url 'Attandance-qrcodegeneration' %}">Features</a></li>
+                <li><a href="{% url 'Home-about' %}">About</a></li>
+                <li><a href="{% url 'student-attendance' %}">Attendance</a></li>
+                <li><a href="{% url 'Home-contactus' %}">Contact</a></li>
+                <li><a href="{% url 'Home-home' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="qr-code-generation">
+        <div class="container">
+            <h2>QR Code Generation</h2>
+            <p>Generate unique QR codes for easy attendance marking.</p>
+            <div class="qr-code-image">
+                <img id="qr-code" src="{% static 'Attandance/images/qr_code_sample.png' %}" alt="QR Code">
+            </div>
+            <a href="#" id="generate-qr-btn" class="cta-btn">Generate Your QR Code</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 QRCodeAttend. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('generate-qr-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            fetch('{% url "generate-qr-code" %}')
+                .then(response => response.blob())
+                .then(blob => {
+                    const reader = new FileReader();
+                    reader.onloadend = function() {
+                        const base64data = reader.result;
+                        document.getElementById('qr-code').src = base64data;
+                    }
+                    reader.readAsDataURL(blob);
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
